@@ -194,12 +194,7 @@
   
         const setHighlightedCanvasElement = (element, isTouchScreen = false) => {
           const foundElem = config.elements.find((configElem) => configElem.id == element.id)
-          if (isTouchScreen) {
-            titleElem.innerHTML = foundElem.title + " (druk nogmaals om te openen)";
-            lastTouchedElem = element
-          } else {
-            titleElem.innerHTML = foundElem.title
-          }
+          titleElem.innerHTML = foundElem.title
         }
   
           // add a 'click'-eventlistener to each canvas element
@@ -212,12 +207,6 @@
             rect.addEventListener('click', (e) => { navigateCanvasElementContent(configElem) })
             rect.addEventListener('touchstart', (e) => {
                   e.preventDefault();
-                //   if (configElem == lastTouchedElem) {
-                //     navigateCanvasElementContent(configElem)
-                //   } else {
-                //     setHighlightedCanvasElement(configElem, true)
-                //   }
-
                 navigateCanvasElementContent(configElem)
               })
               rect.addEventListener('mouseover', (e) => {
